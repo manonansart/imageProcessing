@@ -1,6 +1,6 @@
 \section{Présentation} % (fold)
 \label{sub:pr_sentation}
-	Pour ce premier programme, la technique de segmentation utilisée à été la binarisation par seuillage. En regardant les images IRM, on constate en effet que la tumeur correspond à une zone plus claire. On va donc séparer l'histogramme en deux parties :\\
+	Pour ce premier programme, la technique de segmentation utilisée a été la binarisation par seuillage. En regardant les images IRM, on constate en effet que la tumeur correspond à une zone plus claire. On va donc séparer l'histogramme en deux parties :\\
 	\begin{itemize}
 
 		\item les intensités les plus élevées, correspondant à la tumeur et aux autres zones de l'image ayant les mêmes niveaux de gris;
@@ -17,7 +17,7 @@
 \section{Résultats}
 	\subsection{Binarisation} % (fold)
 	\label{ssub:binarisation}
-		On applique tout d'abord la binarisation, avec un seuil de 36\%, correspondant à un niveau de gris de 91. On visualise l'histogramme avant (figure \ref{fig:hist}) et après la binarisation (figure \ref{fig:histBinaire}). On peut le faire pour chaque IRM segmentée. Les images présentées ici correspondent à l'image avant traitement. 
+		On applique tout d'abord la binarisation, avec un seuil de 36 \%, correspondant à un niveau de gris de 91. On visualise l'histogramme avant (figure \ref{fig:hist}) et après la binarisation (figure \ref{fig:histBinaire}). On peut le faire pour chaque IRM segmentée. Les images présentées ici correspondent à l'image avant traitement.
 
 		\begin{figure}[H]
 			\centering
@@ -51,13 +51,13 @@
 
 	\subsection{Pourcentage d'augmentation de la surface} % (fold)
 	\label{ssub:pourcentage_d_augmentation_de_la_surface}
-		On applique cette technique sur l'IRM avant traitement et sur l'IRM après traitement, afin d'obtenir la surface de la tumeur sur ces deux images. On calcul ensuite le changement de surface de la tumeur après le traitement. Avec cette méthode on obtient une augmentation de 6.5 \%. Cela signifie que le traitement n'a pas été efficace et que la tumeur a grandit.\\
+		On applique cette technique sur l'IRM avant traitement et sur l'IRM après traitement, afin d'obtenir la surface de la tumeur sur ces deux images. On calcule ensuite le changement de surface de la tumeur après le traitement. Avec cette méthode on obtient une augmentation de 6.5 \%. Cela signifie que le traitement n'a pas été efficace et que la tumeur a grandi.\\
 
 		On ne sait cependant pas si ce résultat est bon ou si notre méthode a été peu efficace. On ne sait notamment pas à quel point un petit changement de seuil peut influencer ce résultat.
 	% subsection pourcentage_d_augmentation_de_la_surface (end)
 
 \section{Influence du seuil}
-	Afin de valider le résultat obtenu précédemment, on fait varier le seuil dans des limites acceptables (de 0.35 à 0.45) afin de voir si le résultat change beaucoup. Pour chacun de ces seuils on applique la méthode de segmentation par binarisation, on calcule l'air des tumeurs avant et après traitement et on calcule le ratio correspondant à l’augmentation de la taille de la tumeur. On visualise ces ratios dans la figure \ref{fig:ratios_binarisation}.
+	Afin de valider le résultat obtenu précédemment, on fait varier le seuil dans des limites acceptables (de 0.35 à 0.45) afin de voir si le résultat change beaucoup. Pour chacun de ces seuils on applique la méthode de segmentation par binarisation, on calcule l'aire des tumeurs avant et après traitement et on calcule le ratio correspondant à l’augmentation de la taille de la tumeur. On visualise ces ratios dans la figure \ref{fig:ratios_binarisation}.
 
 	\begin{figure}[H]
 		\centering

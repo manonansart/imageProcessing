@@ -16,7 +16,7 @@
 
 	\subsection{Avec une initialisation par binarisation} % (fold)
 	\label{ssub:avec_une_initialisation_par_binarisation}
-		Nous allons tout d'abord appliqué l'algorithme des fuzzy c-means avec un indice de flou de 2 (c'est celui qui est généralement utilisé) et une initialisation basée sur la binarisation par seuillage. Notre fcm sera effectué avec 3 classes, représentant :
+		Nous allons tout d'abord appliquer l'algorithme des fuzzy c-means avec un indice de flou de 2 (c'est celui qui est généralement utilisé) et une initialisation basée sur la binarisation par seuillage. Notre fcm sera effectué avec 3 classes, représentant :
 		\begin{itemize}
 			\item la tumeur;
 			\item le reste du cerveau;
@@ -32,11 +32,11 @@
 
 		Nous utilisons un seuil de 0.1 pour le cerveau et un seuil de 0.4 pour la tumeur.\\
 
-		Nous appliquons ensuite l'algorithme des fcm afin de faire varier les degrés d'appartenances des pixels à chaque classe. Nous nous arrêtons lorsque les variations de la fonction de coût sont inférieures à $10^{-8}$. Cela prend une trentaine d'itération pour chaque image, ce qui correspond à 1,53 secondes de calcul.
+		Nous appliquons ensuite l'algorithme des fcm afin de faire varier les degrés d'appartenances des pixels à chaque classe. Nous nous arrêtons lorsque les variations de la fonction de coût sont inférieures à $10^{-8}$. Cela prend une trentaine d'itérations pour chaque image, ce qui correspond à 1,53 secondes de calcul.
 
 		La figure \ref{fig:fcm_avec_binarisation} présente dans la colonne de gauche les degrés d'appartenance initiaux pour les classes correspondant (de haut en bas) à la tumeur, au cerveau et au fond; et dans la colonne de droite les degrés d'appartenance finaux à ces mêmes classes.\\
 
-		Il nous suffit ensuite d'attribuer à chaque pixel la classe pour laquelle son degré d'appartenance est le plus grand. On remarque qu'encore une fois, d'autres zones que la tumeur ont été labellisées comme appartenant à cette classe. Comme pour la binarisation, on dit que la tumeur correspond à la zone de cette classe ayant la plus grande surface. On obtient alors le résultat présenté en figure \ref{fig:fcm_tumeur} pour l'IRM avant traitement. 
+		Il nous suffit ensuite d'attribuer à chaque pixel la classe pour laquelle son degré d'appartenance est le plus grand. On remarque qu'encore une fois, d'autres zones que la tumeur ont été labellisées comme appartenant à cette classe. Comme pour la binarisation, on dit que la tumeur correspond à la zone de cette classe ayant la plus grande surface. On obtient alors le résultat présenté en figure \ref{fig:fcm_tumeur} pour l'IRM avant traitement.
 
 		\begin{figure}[H]
 			\centering
@@ -50,7 +50,7 @@
 
 	\subsection{Avec une initialisation aléatoire} % (fold)
 	\label{ssub:avec_une_initialisation_al_atoire}
-		Nous allons appliquer l'algorithme des fuzzy c-means avec les mêmes paramètres que précédemment (indice de flou de 2 et les même 3 classes) mais avec une initialisation aléatoire. Cette fois ci l'algorithme effectue entre 40 et 50 itérations en 1.39 secondes. \\
+		Nous allons appliquer l'algorithme des fuzzy c-means avec les mêmes paramètres que précédemment (indice de flou de 2 et les même 3 classes) mais avec une initialisation aléatoire. Cette fois-ci l'algorithme effectue entre 40 et 50 itérations en 1,39 secondes. \\
 
 		\begin{figure}[H]
 			\centering
@@ -67,7 +67,7 @@
 
 		Après avoir attribué les classes et gardé uniquement la tumeur en nous basant sur l'aire, nous obtenons les contours de la tumeur, présentés en figure \ref{fig:fcm_tumeur_rand}. La diminution de tumeur obtenue est de 6,23\%.
 
-		Nous constatons que ces résultats sont exactement les mêmes que ceux obtenus avec l'initialisation pas binarisation. La calcul avec l'initialisation aléatoire est cependant plus rapide, ce qui nous amène à penser que cette initialisation est à préférer.
+		Nous constatons que ces résultats sont exactement les mêmes que ceux obtenus avec l'initialisation pas binarisation. Le calcul avec l'initialisation aléatoire est cependant plus rapide, ce qui nous amène à penser que cette initialisation est à préférer.
 
 		\begin{figure}[h]
 			\centering
@@ -94,7 +94,7 @@
 
 	\subsection{Influence du epsilon} % (fold)
 	\label{ssub:influence_du_epsilon}
-		On appelle epsilon la variation maximum de la fonction de coût pour considérer que celle ci est constante. Si la différence entre la fonction de coût à une itération avec celle de l'itération précédente est supérieure en valeur absolue à epsilon, on considère que l'algorithme n'a pas convergé et continue, et dans le cas contraire on arrête. Plus epsilon est petit et plus on va effectuer d'itération, le résultat sera donc plus précis mais plus long à obtenir.\\
+		On appelle epsilon la variation maximum de la fonction de coût pour considérer que celle-ci est constante. Si la différence entre la fonction de coût à une itération avec celle de l'itération précédente est supérieure en valeur absolue à epsilon, on considère que l'algorithme n'a pas convergé et on continue, et dans le cas contraire on arrête. Plus epsilon est petit et plus on va effectuer d'itération, le résultat sera donc plus précis mais plus long à obtenir.\\
 
 		Différente valeurs d'epsilon ont été testées. Les résultats sont présentés dans le tableau suivant :\\
 
@@ -112,6 +112,6 @@
 		\bigskip
 
 		On remarque que le ratio ne change pas lorsqu'on change epsilon en restant dans des valeurs raisonnables. Cependant le temps d'exécution diminue. Une valeur d'epsilon d'environ $10^{-5}$ parait adaptée, puisque pour des valeurs plus grandes le temps de calcul diminue peu, et même si les ratios sont les mêmes pour ces images il parait plus prudent de rester précis.
-	
+
 	% subsection influence_du_epsilon (end)
 % section influence_des_param_tres (end)
