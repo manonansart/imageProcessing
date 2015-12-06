@@ -1,0 +1,53 @@
+\documentclass[a4paper, 12pt, french, titlepage]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[babel=true]{csquotes}
+\usepackage{hyperref}
+\usepackage{titling}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage{fullpage}
+\usepackage{float}
+\usepackage{subcaption}
+
+
+% Weird UTF8 bug
+\DeclareUnicodeCharacter{00A0}{ }
+
+%\titlehead{\centering\includegraphics[width=10cm]{images/cover.png}}
+\title{\textit{Compte-rendu de travaux pratiques en traitement d'images}}
+\author{Manon Ansart}
+\date{}
+\pretitle{%
+  \begin{center}
+  \LARGE
+  \includegraphics[width=10cm]{images/cover.png}\\[\bigskipamount]
+}
+\posttitle{\end{center}}
+
+\begin{document}
+
+	% \begin{titlepage}
+	%     \centering
+	%     \vfill
+	%     \includegraphics[width=10cm]{images/cover.png} % also works with logo.pdf
+	%     \maketitle    
+	%     \vfill
+	% \end{titlepage}
+
+	\maketitle
+
+    \chapter*{Introduction}
+        \input{src/0-introduction}
+    
+    \chapter{Binarisation par seuillage}
+        \input{src/1-seuillage}
+
+    \chapter{Fuzzy c-means}
+        \input{src/2-fcm}
+
+    \chapter{Champs de Markov}
+        \input{src/3-markov}
+\end{document}
