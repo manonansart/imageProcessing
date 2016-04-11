@@ -1,8 +1,8 @@
-function [tumor, tumorArea] = findTumor(image, threshold, doPlot, nbFigure)
+function [region, regionArea] = findWithThreshold(image, threshold, doPlot, nbFigure)
 
+	% Show the original image and its histogram
 	if doPlot
 		figure(nbFigure)
-		% Show the original image and its histogram
 		subplot(2, 2, 1)
 		imshow(image)
 
@@ -13,8 +13,9 @@ function [tumor, tumorArea] = findTumor(image, threshold, doPlot, nbFigure)
 	% Binarise the image according to a threshold between 0 and 1
 	imageBW = im2bw(image, threshold);
 
+	
+	% Show the binarised image and its histogram
 	if doPlot
-		% Show the binarised image and its histogram
 		subplot(2, 2, 3)
 		imshow(imageBW)
 
@@ -22,4 +23,4 @@ function [tumor, tumorArea] = findTumor(image, threshold, doPlot, nbFigure)
 		imhist(imageBW)
 	end
 
-	[tumor, tumorArea] = largestArea(imageBW);
+	[region, regionArea] = largestArea(imageBW);

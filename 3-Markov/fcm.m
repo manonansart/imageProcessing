@@ -30,5 +30,3 @@ function [classes, v] = fcm(img, classes, fuzziness, epsilon)
         allJ = [allJ; J];
         step = step + 1;
     end
-
-    step
